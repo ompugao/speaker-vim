@@ -11,6 +11,20 @@ elseif s:Prelude.is_windows()
   let s:say_command = g:speakervim#say_commands['win']
 endif
 
+function! speaker#set_lang(...) abort
+  if a:0 > 0
+    let lang = a:1
+  else
+    let list_langs = keys(s:say_command)
+    let lang = list_langs[str2nr(inputlist(list_langs))]
+  endif
+  let g:speakervim#lang = lang
+endfunction
+
+function! speaker#list_languages(A,L,P) abort
+  return keys(s:say_command)
+endfunction
+
 function! s:kill_say(lang)
   call s:Process.system(s:say_command[a:lang]['kill'])
   return 0

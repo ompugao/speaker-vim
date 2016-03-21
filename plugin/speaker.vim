@@ -14,7 +14,8 @@ let g:speakervim#say_commands = get(g:, 'g:speakervim#say_commands',
             \ },
             \ })
 
-let g:speakervim#lang = 'en'
+let g:speakervim#lang = 'ja'
 
 call operator#user#define('speaker', 'speaker#operator')
 
+command! -nargs=1 -complete=customlist,speaker#list_languages SpeakerVimSetLang :call speaker#set_lang(<f-args>)
