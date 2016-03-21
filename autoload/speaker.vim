@@ -25,9 +25,18 @@ function! speaker#list_languages(A,L,P) abort
   return keys(s:say_command)
 endfunction
 
+function! speaker#killall() abort
+  call s:killall_say()
+endfunction
+
+function! s:killall_say()
+  for lang in keys(s:say_command)
+    call s:kill_say(lang)
+  endfor
+endfunction
+
 function! s:kill_say(lang)
   call s:Process.system(s:say_command[a:lang]['kill'])
-  return 0
 endfunction
 
 function! s:say(text,...)
