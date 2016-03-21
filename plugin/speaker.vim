@@ -14,7 +14,7 @@ let g:speakervim#say_commands = get(g:, 'g:speakervim#say_commands',
             \ },
             \ })
 
-let g:speakervim#lang = 'ja'
+let g:speakervim#lang = 'en'
 
 call operator#user#define('speaker', 'speaker#operator')
 
