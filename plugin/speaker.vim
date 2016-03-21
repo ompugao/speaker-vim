@@ -12,6 +12,10 @@ let g:speakervim#say_commands = get(g:, 'g:speakervim#say_commands',
             \   'en': {'cmd': 'espeak -g5 -k10 "{{text}}"', 'kill': 'pkill espeak'},
             \   'ja': {'cmd': 'jsay "{{text}}"',   'kill': 'pkill vlc'}
             \ },
+            \ 'mac': {
+            \   'ja': {'cmd': 'say -v Kyoko -r 512 "{{text}}"', 'kill': 'pkill say'},
+            \   'en': {'cmd': 'say -v Alex -r 300 "{{text}}"', 'kill': 'pkill say'}
+            \ }
             \ })
 
 let g:speakervim#lang = 'en'
