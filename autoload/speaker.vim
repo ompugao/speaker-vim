@@ -37,7 +37,6 @@ function! s:say(text,...)
     let lang = g:speakervim#lang
   end
   let escaped_text = substitute(s:say_command[lang]['cmd'], "{{text}}", substitute(a:text, '"', '\\\\"', "g"), "g")
-  echomsg escaped_text
   call s:Process.system(escaped_text, {'background': 1})
 endfunction
 
