@@ -49,6 +49,13 @@ function! s:say(text,...)
   call s:Process.system(escaped_text, {'background': 1})
 endfunction
 
+function! speaker#say(text) abort
+  echomsg a:text
+  call s:kill_say(g:speakervim#lang)
+  call s:say(a:text, g:speakervim#lang)
+  return
+endfunction
+
 function! speaker#operator(motion_wise) abort
   "let visual_command = s:visual_command_from_wise_name(a:motion_wise)
   "let is_visual = s:is_visual(mode())
